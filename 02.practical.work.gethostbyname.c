@@ -9,13 +9,17 @@ extern int h_errno;
 
 int main(int argc, char *argv[]){
   if (argc == 1){
-    printf("Hostname: %s ", argv[0]);
-	  exit(1);
-  } 
+  	printf("Hostname: %s\n", argv[0]);
+	exit(1);
+  }else{
+  	print("input argument error !");
+	scanf("Input hostname: %s\n", argv[0]);
+  }
+	
   struct hostent *ip = gethostbyname(argv[1]);
   if (!ip){
-   	printf("Not exits!\n");
-    exit(1);	
+  	printf("Not exits!\n");
+  	exit(1);	
   }
   struct in_addr ip_addr = *(struct in_addr*)(ip->h_addr);
   printf("%s: %s\n",argv[1],inet_ntoa(ip_addr));   
