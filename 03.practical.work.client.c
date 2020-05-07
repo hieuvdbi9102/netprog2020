@@ -3,8 +3,8 @@
 #include <stdlib.h> 
 #include <string.h> 
 #include <sys/socket.h> 
-#incldue <arpa/inet.h>
-#incldue <netinet/in.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
 
 #define MAX 80 
 #define PORT 8080 
