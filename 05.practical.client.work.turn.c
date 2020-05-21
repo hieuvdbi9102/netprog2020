@@ -10,7 +10,7 @@
 #define PORT 8080 
 #define SA struct sockaddr 
 
-void func(int sockfd) 
+void chat(int sockfd) 
 { 
     char buff[MAX]; 
     int n; 
@@ -63,7 +63,7 @@ int main()
 			printf("Client> ");
 			fflush(stdin);
 			scanf("%s",buffer);
-			send(sockfd, buffer, sizeof(buffer), 0);
+			send(sockfd, buffer, strlen(buffer), 0);
 			memset(buffer, 0, 512);
 			if (recv(sockfd, buffer, 512, 0) == 0) {
 				printf("Connection terminated");
@@ -76,7 +76,6 @@ int main()
 		printf("Connection error\n");
 		exit(1);
 	}
-    
-    func(sockfd); 
+    chat(sockfd); 
     close(sockfd); 
 } 

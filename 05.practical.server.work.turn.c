@@ -12,16 +12,13 @@
 #define PORT 8080 
 #define SA struct sockaddr 
 
-void func(int sockfd) 
-{ 
+void chat(int sockfd) { 
 	char buff[MAX]; 
 	int n; 
 
 	for (;;) { 
 		bzero(buff, MAX); 
-
-		read(sockfd, buff, sizeof(buff)); 
-
+		read(sockfd, buff, strlen(buff)); 
 		printf("From client: %s\t To client : ", buff); 
 		bzero(buff, MAX); 
 		n = 0;
@@ -75,7 +72,7 @@ int main()
     	printf("Oops! Something wrong");
 	    exit(1);
     } else { 
-	printf("Client Connected\n");
+		printf("Client Connected\n");
     	while(1) {
 		    char buffer[512];
             if (recv(connfd, buffer, 512, 0) == 0) {
@@ -86,9 +83,9 @@ int main()
 		    printf("Server> ");
 		    memset(buffer, 0 ,512);
 		    scanf("%s", buffer);
-	 	    send(connfd, buffer, sizeof(buffer), 0);		
+	 	    send(connfd, buffer, strlen(buffer), 0);		
 	    }
     }
-    func(connfd); 
+    chat(connfd); 
 	close(sockfd); 
 } 
