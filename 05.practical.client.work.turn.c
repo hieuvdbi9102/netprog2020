@@ -69,7 +69,7 @@ int main()
             printf("Client> ");
             fflush(stdin);
             scanf("%s", buffer);
-            int n = send(sockfd, buffer, strlen(buffer)+1, 0);// +1 NULL characer
+            int n = send(sockfd, buffer, strlen(buffer), 0);
             printf("sent %d\n",n,strlen(buffer));
             memset(buffer, 0, 512);
             if (recv(sockfd, buffer, 512, 0) == 0)
