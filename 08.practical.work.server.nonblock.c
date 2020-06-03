@@ -58,7 +58,7 @@ int main()
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(PORT);
 
-    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &(int){ 1 }, sizeof(int));
+    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int));
     int fl = fcntl(sockfd, F_GETFL, 0);
 
     if ((bind(sockfd, (SA *)&servaddr, sizeof(servaddr))) != 0)

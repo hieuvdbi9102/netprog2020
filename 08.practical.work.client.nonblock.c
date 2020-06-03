@@ -67,7 +67,8 @@ int main()
             printf("Client> ");
             fflush(stdin);
             scanf("%s", buffer);
-            if (strcmp(buffer, "/quit") == 0){
+            if (strcmp(buffer, "/quit") == 0)
+            {
                 break;
             }
             int n = send(sockfd, buffer, strlen(buffer) + 1, 0); // +1 NULL characer
